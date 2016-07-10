@@ -29,24 +29,23 @@ public class Fraction {
 	}
 
 	private static Fraction of(int numerator, int denominator) {
-		return new Fraction(numerator, denominator);
+		if (denominator == 0) {
+			throw new ZeroDenominatorException(numerator);
+		}
+
+		if (numerator == 0) {
+			return new Fraction(numerator, 1);
+		} else {
+			return new Fraction(numerator, denominator);
+		}
 	}
 
 	private int numerator;
 	private int denominator;
 
 	public Fraction(int numerator, int denominator) {
-		if (denominator == 0) {
-			throw new ZeroDenominatorException(numerator);
-		}
-
 		this.numerator = numerator;
-
-		if (numerator == 0) {
-			this.denominator = 1;
-		} else {
-			this.denominator = denominator;
-		}
+		this.denominator = denominator;
 	}
 
 	@Override
