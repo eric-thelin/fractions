@@ -102,6 +102,11 @@ public class FractionTest {
 	}
 
 	@Test
+	public void includesMinusSignOfNegativeOfWholeNumberInStringRepresentation() {
+		assertThat(Fraction.of("-7").toString(), is("-7"));
+	}
+
+	@Test
 	public void simplifiesStringRepresentationOfZeroFraction() {
 		assertThat(Fraction.of("0/5").toString(), is("0"));
 	}
