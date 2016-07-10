@@ -18,6 +18,15 @@ public class FractionTest {
 	}
 
 	@Test
+	public void isEqualToSelf() {
+		// Given
+		Fraction instance = Fraction.of("7/5");
+
+		// Then
+		assertTrue(instance.equals(instance));
+	}
+
+	@Test
 	public void isEqualToFractionWithSimilarValues() {
 		assertTrue(Fraction.of("7/5").equals(Fraction.of("7/5")));
 	}
