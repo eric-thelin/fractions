@@ -159,4 +159,9 @@ public class FractionTest {
 	public void canAddZeroToWholeNumber() {
 		assertThat(Fraction.of("7").plus(Fraction.ZERO), is(Fraction.of("7")));
 	}
+
+	@Test
+	public void canAddWholeNumbers() {
+		assertThat(Fraction.of("7").plus(Fraction.of("5")), is(Fraction.of("12")));
+	}
 }
