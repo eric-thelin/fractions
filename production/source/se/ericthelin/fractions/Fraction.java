@@ -7,9 +7,11 @@ import static java.util.Objects.requireNonNull;
 public class Fraction {
 
 	private static final Pattern FRACTION_PATTERN = Pattern.compile("\\d+/\\d+");
+	private static final Pattern INTEGER_PATTERN = Pattern.compile("\\d+");
 
 	public static Fraction of(String text) {
-		if (!FRACTION_PATTERN.matcher(text).matches()) {
+		if (!FRACTION_PATTERN.matcher(text).matches()
+				&& !INTEGER_PATTERN.matcher(text).matches()) {
 			throw new InvalidFractionFormatException(text);
 		}
 

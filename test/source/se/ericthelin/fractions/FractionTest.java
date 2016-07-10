@@ -45,6 +45,11 @@ public class FractionTest {
 	}
 
 	@Test
+	public void acceptsTextWithJustDigits() {
+		Fraction.of("7");
+	}
+
+	@Test
 	public void hasMeaningfulStringRepresentation() {
 		assertThat(Fraction.of("7/5").toString(), is("7/5"));
 	}
