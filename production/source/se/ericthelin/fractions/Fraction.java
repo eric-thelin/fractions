@@ -1,36 +1,52 @@
 package se.ericthelin.fractions;
 
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static java.util.Objects.requireNonNull;
+import static java.lang.Integer.parseInt;
 
 public class Fraction {
 
-	private static final Pattern FRACTION_PATTERN = Pattern.compile("\\d+/\\d+");
+	private static final Pattern FRACTION_PATTERN = Pattern.compile("(\\d+)/(\\d+)");
 	private static final Pattern INTEGER_PATTERN = Pattern.compile("\\d+");
 
 	public static Fraction of(String text) {
-		if (!FRACTION_PATTERN.matcher(text).matches()
-				&& !INTEGER_PATTERN.matcher(text).matches()) {
-			throw new InvalidFractionFormatException(text);
+		Matcher fractionMatcher = FRACTION_PATTERN.matcher(text);
+
+		if (fractionMatcher.matches()) {
+			return Fraction.of(
+					parseInt(fractionMatcher.group(1)),
+					parseInt(fractionMatcher.group(2)));
 		}
 
-		if (text.endsWith("/0")) {
-			throw new ZeroDenominatorException(text);
+		Matcher integerMatcher = INTEGER_PATTERN.matcher(text);
+
+		if (integerMatcher.matches()) {
+			return Fraction.of(parseInt(integerMatcher.group(0)), 1);
 		}
 
-		return new Fraction(text);
+		throw new InvalidFractionFormatException(text);
 	}
 
-	private final String text;
+	private static Fraction of(int numerator, int denominator) {
+		return new Fraction(numerator, denominator);
+	}
 
-	private Fraction(String text) {
-		this.text = requireNonNull(text);
+	private int numerator;
+	private int denominator;
+
+	public Fraction(int numerator, int denominator) {
+		this.numerator = numerator;
+		this.denominator = denominator;
+
+		if (denominator == 0) {
+			throw new ZeroDenominatorException(toString());
+		}
 	}
 
 	@Override
 	public String toString() {
-		return text;
+		return numerator + "/" + denominator;
 	}
 
 	@Override
@@ -45,7 +61,8 @@ public class Fraction {
 
 		Fraction other = (Fraction) obj;
 
-		return text.equals(other.text);
+		return numerator == other.numerator
+				&& denominator == other.denominator;
 	}
 
 	public Fraction plus(Fraction term) {
