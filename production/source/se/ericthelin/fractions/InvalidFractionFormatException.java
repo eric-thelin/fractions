@@ -8,7 +8,8 @@ public class InvalidFractionFormatException extends IllegalArgumentException {
 
 	public InvalidFractionFormatException(String text) {
 		super(String.format(
-				"Expected either a fraction or a whole number, but got \"%s\"",
+				"Expected either a fraction or a whole number, but got \"%s\". " +
+						"Valid examples: \"1/2\", \"3\", \"-4/5\", \"-6\", \"78/9\".",
 				requireNonNull(text)));
 
 		this.text = text;

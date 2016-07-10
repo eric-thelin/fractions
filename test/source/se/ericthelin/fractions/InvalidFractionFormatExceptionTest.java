@@ -23,6 +23,7 @@ public class InvalidFractionFormatExceptionTest {
 		// Then
 		assertThat(
 				e.getMessage(),
-				is("Expected either a fraction or a whole number, but got \"foo\""));
+				is("Expected either a fraction or a whole number, but got \"foo\". " +
+						"Valid examples: \"1/2\", \"3\", \"-4/5\", \"-6\", \"78/9\"."));
 	}
 }
