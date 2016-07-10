@@ -41,4 +41,9 @@ public class GreatestCommonDivisorTest {
 	public void acceptsBothArgumentsNegative() {
 		assertThat(GreatestCommonDivisor.of(-6, -4), is(-2));
 	}
+
+	@Test
+	public void canComputeGreatestCommonDivisorOfLargeArguments() {
+		assertThat(GreatestCommonDivisor.of(1071, 462), is(21));
+	}
 }
