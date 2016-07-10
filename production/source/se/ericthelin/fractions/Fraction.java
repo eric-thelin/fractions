@@ -1,8 +1,22 @@
 package se.ericthelin.fractions;
 
+import static java.util.Objects.requireNonNull;
+
 public class Fraction {
+
 	public static Fraction of(String text) {
-		throw new NullPointerException();
+		return new Fraction(text);
+	}
+
+	private final String text;
+
+	private Fraction(String text) {
+		this.text = requireNonNull(text);
+	}
+
+	@Override
+	public String toString() {
+		return text;
 	}
 
 	public Fraction plus(Fraction term) {
