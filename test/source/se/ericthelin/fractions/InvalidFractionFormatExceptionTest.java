@@ -13,6 +13,11 @@ public class InvalidFractionFormatExceptionTest {
 	}
 
 	@Test
+	public void remembersText() {
+		assertThat(new InvalidFractionFormatException("foo").getText(), is("foo"));
+	}
+	
+	@Test
 	public void hasInformativeMessage() {
 		// Given
 		String text = "foo";
