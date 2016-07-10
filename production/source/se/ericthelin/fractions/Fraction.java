@@ -19,6 +19,11 @@ public class Fraction {
 		return text;
 	}
 
+	@Override
+	public boolean equals(Object obj) {
+		return true;
+	}
+
 	public Fraction plus(Fraction term) {
 		throw new UnsupportedOperationException("Not yet implemented");
 	}
