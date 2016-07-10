@@ -40,8 +40,8 @@ public class Fraction {
 		}
 	}
 
-	private int numerator;
-	private int denominator;
+	private final int numerator;
+	private final int denominator;
 
 	public Fraction(int numerator, int denominator) {
 		this.numerator = numerator;
