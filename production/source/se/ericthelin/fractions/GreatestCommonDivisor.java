@@ -5,6 +5,12 @@ public final class GreatestCommonDivisor {
 	}
 
 	public static int of(int first, int second) {
-		return Math.max(first, second);
+		while (second != 0) {
+			int temp = second;
+			second = first % second;
+			first = temp;
+		}
+
+		return first;
 	}
 }
