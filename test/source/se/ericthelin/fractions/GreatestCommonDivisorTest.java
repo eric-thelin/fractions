@@ -26,4 +26,9 @@ public class GreatestCommonDivisorTest {
 	public void acceptsArgumentsInReverseOrder() {
 		assertThat(GreatestCommonDivisor.of(4, 6), is(2));
 	}
+
+	@Test
+	public void acceptsNegativeFirstArgument() {
+		assertThat(GreatestCommonDivisor.of(-6, 4), is(-2));
+	}
 }
