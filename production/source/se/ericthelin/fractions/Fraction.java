@@ -36,12 +36,12 @@ public class Fraction {
 	private int denominator;
 
 	public Fraction(int numerator, int denominator) {
+		if (denominator == 0) {
+			throw new ZeroDenominatorException(numerator);
+		}
+
 		this.numerator = numerator;
 		this.denominator = denominator;
-
-		if (denominator == 0) {
-			throw new ZeroDenominatorException(toString());
-		}
 	}
 
 	@Override

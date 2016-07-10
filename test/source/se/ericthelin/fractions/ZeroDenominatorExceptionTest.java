@@ -7,18 +7,13 @@ import static org.junit.Assert.assertThat;
 
 public class ZeroDenominatorExceptionTest {
 
-	@Test(expected = NullPointerException.class)
-	public void rejectsNullText() {
-		new ZeroDenominatorException(null);
-	}
-
 	@Test
 	public void hasInformativeMessage() {
 		// Given
-		String text = "7/0";
+		int numerator = 7;
 
 		// When
-		ZeroDenominatorException e = new ZeroDenominatorException(text);
+		ZeroDenominatorException e = new ZeroDenominatorException(numerator);
 
 		// Then
 		assertThat(

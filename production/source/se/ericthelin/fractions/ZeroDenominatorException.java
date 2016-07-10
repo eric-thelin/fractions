@@ -1,19 +1,17 @@
 package se.ericthelin.fractions;
 
-import static java.util.Objects.requireNonNull;
-
 public class ZeroDenominatorException extends IllegalArgumentException {
-	private final String text;
+	private final int numerator;
 
-	public ZeroDenominatorException(String text) {
+	public ZeroDenominatorException(int numerator) {
 		super(String.format(
-				"Expected a non-zero denominator, but got \"%s\"",
-				requireNonNull(text)));
+				"Expected a non-zero denominator, but got \"%s/0\"",
+				numerator));
 
-		this.text = text;
+		this.numerator = numerator;
 	}
 
-	public String getText() {
-		return text;
+	public int getNumerator() {
+		return numerator;
 	}
 }

@@ -56,7 +56,7 @@ public class FractionTest {
 			// Then
 			fail("Nothing thrown");
 		} catch (ZeroDenominatorException e) {
-			assertThat(e.getText(), is(textZeroDenominator));
+			assertThat(e.getNumerator(), is(7));
 		}
 	}
 
