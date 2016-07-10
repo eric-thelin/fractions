@@ -97,6 +97,11 @@ public class FractionTest {
 	}
 
 	@Test
+	public void simplifiesStringRepresentationOfZeroFraction() {
+		assertThat(Fraction.of("0/5").toString(), is("0"));
+	}
+
+	@Test
 	public void isEqualToSelf() {
 		// Given
 		Fraction instance = Fraction.of("7/5");
