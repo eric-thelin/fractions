@@ -149,4 +149,9 @@ public class FractionTest {
 	public void isNotEqualToFractionWithSimilarDenominatorButDifferentNumerator() {
 		assertFalse(Fraction.of("7/5").equals(Fraction.of("8/5")));
 	}
+
+	@Test
+	public void canAddZeroToZero() {
+		assertThat(Fraction.ZERO.plus(Fraction.ZERO), is(Fraction.ZERO));
+	}
 }
