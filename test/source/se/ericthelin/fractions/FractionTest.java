@@ -3,8 +3,7 @@ package se.ericthelin.fractions;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class FractionTest {
 
@@ -21,5 +20,10 @@ public class FractionTest {
 	@Test
 	public void isEqualToFractionWithSimilarValues() {
 		assertTrue(Fraction.of("7/5").equals(Fraction.of("7/5")));
+	}
+
+	@Test
+	public void isNotEqualToNull() {
+		assertFalse(Fraction.of("7/5").equals(null));
 	}
 }
