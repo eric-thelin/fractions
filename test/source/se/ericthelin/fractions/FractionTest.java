@@ -229,4 +229,9 @@ public class FractionTest {
 	public void canAddFractionToNegativeFraction() {
 		assertThat(Fraction.of("-1/2").plus(Fraction.of("1/3")), is(Fraction.of("-1/6")));
 	}
+
+	@Test
+	public void canAddNegativeFractionToFraction() {
+		assertThat(Fraction.of("1/2").plus(Fraction.of("-1/3")), is(Fraction.of("1/6")));
+	}
 }
