@@ -5,6 +5,6 @@ public final class GreatestCommonDivisor {
 	}
 
 	public static int of(int first, int second) {
-		return first;
+		return Math.max(first, second);
 	}
 }

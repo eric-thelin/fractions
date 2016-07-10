@@ -11,4 +11,9 @@ public class GreatestCommonDivisorTest {
 	public void returnsFirstWhenSecondIsZero() {
 		assertThat(GreatestCommonDivisor.of(6, 0), is(6));
 	}
+
+	@Test
+	public void returnsSecondWhenFirstIsZero() {
+		assertThat(GreatestCommonDivisor.of(0, 4), is(4));
+	}
 }
