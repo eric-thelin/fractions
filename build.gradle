@@ -6,12 +6,18 @@ task wrapper(type: Wrapper) {
 	distributionUrl = 'http://services.gradle.org/distributions/gradle-2.14-all.zip'
 }
 
-repositories {
-	mavenCentral()
+version = '1.0'
+
+uploadArchives {
+	repositories {
+		flatDir name: 'development', dirs: "$buildDir/repository"
+	}
 }
 
-dependencies {
-	testCompile group: 'junit', name: 'junit', version: '4.12'
+repositories {
+	add uploadArchives.repositories.getByName('development')
+
+	mavenCentral()
 }
 
 sourceSets {
@@ -27,4 +33,22 @@ sourceSets {
 		java.srcDirs = ['releaseTest/source']
 		resources.srcDirs = ['releaseTest/resources']
 	}
+}
+
+dependencies {
+	def junit = [group: 'junit', name: 'junit', version: '4.12']
+
+	testCompile junit
+
+	releaseTestCompile([
+			[group: 'se.ericthelin', name: 'fractions', version: version],
+			junit
+	])
+}
+
+tasks.compileReleaseTestJava.dependsOn tasks.uploadArchives
+
+task releaseTest(type: Test) {
+	testClassesDir = sourceSets.releaseTest.output.classesDir
+	classpath = sourceSets.releaseTest.runtimeClasspath
 }
