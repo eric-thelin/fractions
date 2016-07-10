@@ -78,6 +78,8 @@ public class Fraction {
 	}
 
 	public Fraction plus(Fraction term) {
-		return Fraction.of(numerator + term.numerator, 1);
+		return Fraction.of(
+				numerator + denominator * term.numerator,
+				denominator);
 	}
 }

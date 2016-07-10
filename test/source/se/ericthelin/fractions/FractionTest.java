@@ -164,4 +164,9 @@ public class FractionTest {
 	public void canAddWholeNumbers() {
 		assertThat(Fraction.of("7").plus(Fraction.of("5")), is(Fraction.of("12")));
 	}
+
+	@Test
+	public void canAddWholeNumberToFraction() {
+		assertThat(Fraction.of("4/3").plus(Fraction.of("5")), is(Fraction.of("19/3")));
+	}
 }
