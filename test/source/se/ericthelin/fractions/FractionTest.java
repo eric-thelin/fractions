@@ -13,6 +13,22 @@ public class FractionTest {
 	}
 
 	@Test
+	public void rejectsTextWithLetters() {
+		// Given
+		String textWithLetters = "foo 7/5 bar";
+
+		try {
+			// When
+			Fraction.of(textWithLetters);
+
+			// Then
+			fail("Nothing thrown");
+		} catch (InvalidFractionFormatException e) {
+			assertThat(e.getText(), is(textWithLetters));
+		}
+	}
+
+	@Test
 	public void rejectsTextWithMultipleSlashes() {
 		// Given
 		String textWithMultipleSlashes = "7/5/3";
