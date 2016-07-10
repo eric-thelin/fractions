@@ -102,6 +102,11 @@ public class FractionTest {
 	}
 
 	@Test
+	public void usesGreatestCommonDivisorToSimplifyRepresentation() {
+		assertThat(Fraction.of("4/6").toString(), is("2/3"));
+	}
+
+	@Test
 	public void isEqualToSelf() {
 		// Given
 		Fraction instance = Fraction.of("7/5");
