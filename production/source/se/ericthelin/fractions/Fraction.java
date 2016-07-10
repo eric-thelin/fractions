@@ -21,10 +21,10 @@ public class Fraction {
 
 	@Override
 	public boolean equals(Object obj) {
-		if (obj == null) {
+		if (!(obj instanceof Fraction)) {
 			return false;
 		}
-		
+
 		return true;
 	}
 

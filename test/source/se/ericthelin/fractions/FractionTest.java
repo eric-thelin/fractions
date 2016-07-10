@@ -26,4 +26,9 @@ public class FractionTest {
 	public void isNotEqualToNull() {
 		assertFalse(Fraction.of("7/5").equals(null));
 	}
+
+	@Test
+	public void isNotEqualToDifferentType() {
+		assertFalse(Fraction.of("7/5").equals("7/5"));
+	}
 }
