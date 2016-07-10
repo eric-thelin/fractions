@@ -40,7 +40,15 @@ public class Fraction {
 		} else {
 			int divisor = GreatestCommonDivisor.of(numerator, denominator);
 
-			return new Fraction(numerator / divisor, denominator / divisor);
+			numerator /= divisor;
+			denominator /= divisor;
+
+			if (denominator < 0) {
+				numerator *= -1;
+				denominator *= -1;
+			}
+
+			return new Fraction(numerator, denominator);
 		}
 	}
 
