@@ -43,7 +43,7 @@ public class Fraction {
 	private final int numerator;
 	private final int denominator;
 
-	public Fraction(int numerator, int denominator) {
+	private Fraction(int numerator, int denominator) {
 		this.numerator = numerator;
 		this.denominator = denominator;
 	}
