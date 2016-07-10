@@ -7,7 +7,11 @@ public class InvalidFractionFormatException extends IllegalArgumentException {
 	private final String text;
 
 	public InvalidFractionFormatException(String text) {
-		this.text = requireNonNull(text);
+		super(String.format(
+				"Expected either a fraction or a whole number, but got \"%s\"",
+				requireNonNull(text)));
+
+		this.text = text;
 	}
 
 	public String getText() {
