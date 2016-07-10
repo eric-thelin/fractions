@@ -3,6 +3,7 @@ package se.ericthelin.fractions;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.not;
 import static org.junit.Assert.*;
 
 public class FractionTest {
@@ -225,6 +226,11 @@ public class FractionTest {
 	@Test
 	public void hasSameHashCodeAsFractionWithSimilarValues() {
 		assertThat(Fraction.of("7/5").hashCode(), is(Fraction.of("7/5").hashCode()));
+	}
+
+	@Test
+	public void hasHashCodeDifferentFromThatOfFractionWithDifferentNumerator() {
+		assertThat(Fraction.of("7/5").hashCode(), not(is(Fraction.of("8/5").hashCode())));
 	}
 
 	@Test

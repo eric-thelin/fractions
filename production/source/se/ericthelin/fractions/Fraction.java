@@ -87,7 +87,7 @@ public class Fraction {
 
 	@Override
 	public int hashCode() {
-		return 1;
+		return numerator;
 	}
 
 	public Fraction plus(Fraction term) {
