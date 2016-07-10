@@ -52,6 +52,10 @@ public class Fraction {
 
 	@Override
 	public String toString() {
+		if (denominator == 1) {
+			return String.valueOf(numerator);
+		}
+
 		return numerator + "/" + denominator;
 	}
 

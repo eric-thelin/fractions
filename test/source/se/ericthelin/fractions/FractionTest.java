@@ -87,6 +87,11 @@ public class FractionTest {
 	}
 
 	@Test
+	public void simplifiesStringRepresentationWhenDenominatorIsOne() {
+		assertThat(Fraction.of("7/1").toString(), is("7"));
+	}
+
+	@Test
 	public void isEqualToSelf() {
 		// Given
 		Fraction instance = Fraction.of("7/5");
