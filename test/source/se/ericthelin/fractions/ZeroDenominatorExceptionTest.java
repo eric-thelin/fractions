@@ -11,7 +11,7 @@ public class ZeroDenominatorExceptionTest {
 	public void remembersNumerator() {
 		assertThat(new ZeroDenominatorException(42).getNumerator(), is(42));
 	}
-	
+
 	@Test
 	public void hasInformativeMessage() {
 		// Given

@@ -223,6 +223,11 @@ public class FractionTest {
 	}
 
 	@Test
+	public void hasSameHashCodeAsFractionWithSimilarValues() {
+		assertThat(Fraction.of("7/5").hashCode(), is(Fraction.of("7/5").hashCode()));
+	}
+
+	@Test
 	public void canAddZeroToZero() {
 		assertThat(Fraction.ZERO.plus(Fraction.ZERO), is(Fraction.ZERO));
 	}

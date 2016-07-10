@@ -85,6 +85,11 @@ public class Fraction {
 				&& denominator == other.denominator;
 	}
 
+	@Override
+	public int hashCode() {
+		return 1;
+	}
+
 	public Fraction plus(Fraction term) {
 		return Fraction.of(
 				numerator * term.denominator + denominator * term.numerator,
