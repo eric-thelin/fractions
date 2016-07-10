@@ -36,4 +36,9 @@ public class GreatestCommonDivisorTest {
 	public void acceptsNegativeSecondArgument() {
 		assertThat(GreatestCommonDivisor.of(6, -4), is(2));
 	}
+
+	@Test
+	public void acceptsBothArgumentsNegative() {
+		assertThat(GreatestCommonDivisor.of(-6, -4), is(-2));
+	}
 }
