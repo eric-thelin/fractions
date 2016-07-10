@@ -41,7 +41,12 @@ public class Fraction {
 		}
 
 		this.numerator = numerator;
-		this.denominator = denominator;
+
+		if (numerator == 0) {
+			this.denominator = 1;
+		} else {
+			this.denominator = denominator;
+		}
 	}
 
 	@Override

@@ -85,6 +85,11 @@ public class FractionTest {
 	}
 
 	@Test
+	public void isEqualToZeroWhenNumeratorIsZero() {
+		assertTrue(Fraction.of("0/5").equals(Fraction.of("0")));
+	}
+
+	@Test
 	public void isNotEqualToNull() {
 		assertFalse(Fraction.of("7/5").equals(null));
 	}
