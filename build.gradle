@@ -49,6 +49,10 @@ dependencies {
 tasks.compileReleaseTestJava.dependsOn tasks.uploadArchives
 
 task releaseTest(type: Test) {
+	mustRunAfter tasks.test
+
 	testClassesDir = sourceSets.releaseTest.output.classesDir
 	classpath = sourceSets.releaseTest.runtimeClasspath
 }
+
+tasks.check.dependsOn tasks.releaseTest
