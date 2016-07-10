@@ -25,7 +25,9 @@ public class Fraction {
 			return false;
 		}
 
-		return true;
+		Fraction other = (Fraction) obj;
+
+		return text.equals(other.text);
 	}
 
 	public Fraction plus(Fraction term) {

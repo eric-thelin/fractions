@@ -31,4 +31,9 @@ public class FractionTest {
 	public void isNotEqualToDifferentType() {
 		assertFalse(Fraction.of("7/5").equals("7/5"));
 	}
+
+	@Test
+	public void isNotEqualToFractionWithSimilarNumeratorButDifferentDenominator() {
+		assertFalse(Fraction.of("7/5").equals(Fraction.of("7/4")));
+	}
 }
