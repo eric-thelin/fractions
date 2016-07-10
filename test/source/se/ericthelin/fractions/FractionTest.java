@@ -117,6 +117,11 @@ public class FractionTest {
 	}
 
 	@Test
+	public void skipsDoubleMinusSignsFromStringRepresentation() {
+		assertThat(Fraction.of("-1/-3").toString(), is("1/3"));
+	}
+
+	@Test
 	public void isEqualToSelf() {
 		// Given
 		Fraction instance = Fraction.of("7/5");
