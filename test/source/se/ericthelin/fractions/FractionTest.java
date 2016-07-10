@@ -107,17 +107,17 @@ public class FractionTest {
 	}
 
 	@Test
-	public void beginsStringRepresentationOfNegativeFractionWithMinusSign() {
+	public void beginsStringRepresentationOfNegativeFractionHavingNegativeNumeratorWithMinusSign() {
 		assertThat(Fraction.of("-1/3").toString(), is("-1/3"));
 	}
 
 	@Test
-	public void beginsStringRepresentationOfReversedNegativeFractionWithMinusSign() {
+	public void beginsStringRepresentationOfNegativeFractionHavingNegativeDenominatorWithMinusSign() {
 		assertThat(Fraction.of("1/-3").toString(), is("-1/3"));
 	}
 
 	@Test
-	public void skipsDoubleMinusSignsFromStringRepresentation() {
+	public void removesDoubleMinusSignsFromStringRepresentation() {
 		assertThat(Fraction.of("-1/-3").toString(), is("1/3"));
 	}
 
@@ -141,22 +141,22 @@ public class FractionTest {
 	}
 
 	@Test
-	public void isEqualToFractionWithEqualNumericalValue() {
+	public void isEqualToFractionWithEqualNumericValue() {
 		assertTrue(Fraction.of("4/6").equals(Fraction.of("2/3")));
 	}
 
 	@Test
-	public void isEqualToFractionNegatedValues() {
+	public void isEqualToFractionWithNegatedValues() {
 		assertTrue(Fraction.of("1/3").equals(Fraction.of("-1/-3")));
 	}
 
 	@Test
-	public void isEqualToFractionWithInvertedValues() {
+	public void isEqualToOtherNegativeFractionHavingNegatedValues() {
 		assertTrue(Fraction.of("-1/3").equals(Fraction.of("1/-3")));
 	}
 
 	@Test
-	public void doestNotCareAboutOrderOfSignForEquality() {
+	public void doestNotCareAboutPlacementOfSignForEquality() {
 		assertTrue(Fraction.of("1/-3").equals(Fraction.of("-1/3")));
 	}
 
@@ -206,12 +206,12 @@ public class FractionTest {
 	}
 
 	@Test
-	public void canAddFractions() {
+	public void canAddFractionToFraction() {
 		assertThat(Fraction.of("7/3").plus(Fraction.of("4/5")), is(Fraction.of("47/15")));
 	}
 
 	@Test
-	public void reducesSum() {
+	public void reducesSumUsingGreatestCommonDivisor() {
 		assertThat(Fraction.of("3/8").plus(Fraction.of("1/8")), is(Fraction.of("1/2")));
 	}
 }
