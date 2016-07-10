@@ -1,11 +1,15 @@
 package se.ericthelin.fractions;
 
+import java.util.regex.Pattern;
+
 import static java.util.Objects.requireNonNull;
 
 public class Fraction {
 
+	private static final Pattern FRACTION_PATTERN = Pattern.compile("\\d+/\\d+");
+
 	public static Fraction of(String text) {
-		if (!text.matches("\\d+/\\d+")) {
+		if (!FRACTION_PATTERN.matcher(text).matches()) {
 			throw new InvalidFractionFormatException(text);
 		}
 
