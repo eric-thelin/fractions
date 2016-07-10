@@ -5,3 +5,14 @@ apply {
 task wrapper(type: Wrapper) {
 	distributionUrl = 'http://services.gradle.org/distributions/gradle-2.14-all.zip'
 }
+
+sourceSets {
+	main {
+		java.srcDirs = ['production/source']
+		resources.srcDirs = ['production/resources']
+	}
+	test {
+		java.srcDirs = ['test/source']
+		resources.srcDirs = ['test/resources']
+	}
+}
