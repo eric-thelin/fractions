@@ -10,7 +10,7 @@ public class Fraction {
 	public static final Fraction ZERO = new Fraction(0, 1);
 
 	private static final Pattern FRACTION_PATTERN = Pattern.compile("(-?\\d+)/(-?\\d+)");
-	private static final Pattern INTEGER_PATTERN = Pattern.compile("\\d+");
+	private static final Pattern INTEGER_PATTERN = Pattern.compile("-?\\d+");
 
 	public static Fraction of(String text) {
 		Matcher fractionMatcher = FRACTION_PATTERN.matcher(text);
