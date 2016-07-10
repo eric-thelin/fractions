@@ -61,6 +61,22 @@ public class FractionTest {
 	}
 
 	@Test
+	public void rejectsTextWithDecimalDenominator() {
+		// Given
+		String textWithDecimalDenominator = "7/5.0";
+
+		try {
+			// When
+			Fraction.of(textWithDecimalDenominator);
+
+			// Then
+			fail("Nothing thrown");
+		} catch (InvalidFractionFormatException e) {
+			assertThat(e.getText(), is(textWithDecimalDenominator));
+		}
+	}
+
+	@Test
 	public void rejectsTextWithZeroDenominator() {
 		// Given
 		String textWithZeroDenominator = "7/0";
