@@ -30,8 +30,8 @@ sourceSets {
 		resources.srcDirs = ['test/resources']
 	}
 	releaseTest {
-		java.srcDirs = ['releaseTest/source']
-		resources.srcDirs = ['releaseTest/resources']
+		java.srcDirs = ['release-test/source']
+		resources.srcDirs = ['release-test/resources']
 	}
 }
 
