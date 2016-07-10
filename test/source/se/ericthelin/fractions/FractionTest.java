@@ -13,6 +13,22 @@ public class FractionTest {
 	}
 
 	@Test
+	public void rejectsTextWithMultipleSlashes() {
+		// Given
+		String textWithMultipleSlashes = "7/5/3";
+
+		try {
+			// When
+			Fraction.of(textWithMultipleSlashes);
+
+			// Then
+			fail("Nothing thrown");
+		} catch (InvalidFractionFormatException e) {
+			assertThat(e.getText(), is(textWithMultipleSlashes));
+		}
+	}
+
+	@Test
 	public void hasMeaningfulStringRepresentation() {
 		assertThat(Fraction.of("7/5").toString(), is("7/5"));
 	}

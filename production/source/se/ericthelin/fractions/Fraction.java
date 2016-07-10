@@ -5,6 +5,10 @@ import static java.util.Objects.requireNonNull;
 public class Fraction {
 
 	public static Fraction of(String text) {
+		if (!text.matches("\\d+/\\d+")) {
+			throw new InvalidFractionFormatException(text);
+		}
+
 		return new Fraction(text);
 	}
 
