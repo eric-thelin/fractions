@@ -15,6 +15,10 @@ public class Fraction {
 			throw new InvalidFractionFormatException(text);
 		}
 
+		if (text.endsWith("/0")) {
+			throw new ZeroDenominatorException(text);
+		}
+
 		return new Fraction(text);
 	}
 

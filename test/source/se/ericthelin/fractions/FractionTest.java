@@ -45,6 +45,22 @@ public class FractionTest {
 	}
 
 	@Test
+	public void rejectsTextWithZeroDenominator() {
+		// Given
+		String textZeroDenominator = "7/0";
+
+		try {
+			// When
+			Fraction.of(textZeroDenominator);
+
+			// Then
+			fail("Nothing thrown");
+		} catch (ZeroDenominatorException e) {
+			assertThat(e.getText(), is(textZeroDenominator));
+		}
+	}
+
+	@Test
 	public void acceptsTextWithJustDigits() {
 		Fraction.of("7");
 	}
