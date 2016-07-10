@@ -78,6 +78,6 @@ public class Fraction {
 	}
 
 	public Fraction plus(Fraction term) {
-		return ZERO;
+		return this;
 	}
 }
