@@ -224,4 +224,9 @@ public class FractionTest {
 	public void reducesSumUsingGreatestCommonDivisor() {
 		assertThat(Fraction.of("3/8").plus(Fraction.of("1/8")), is(Fraction.of("1/2")));
 	}
+
+	@Test
+	public void canAddFractionToNegativeFraction() {
+		assertThat(Fraction.of("-1/2").plus(Fraction.of("1/3")), is(Fraction.of("-1/6")));
+	}
 }
