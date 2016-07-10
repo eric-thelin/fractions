@@ -38,7 +38,9 @@ public class Fraction {
 		if (numerator == 0) {
 			return ZERO;
 		} else {
-			return new Fraction(numerator, denominator);
+			int divisor = GreatestCommonDivisor.of(numerator, denominator);
+
+			return new Fraction(numerator / divisor, denominator / divisor);
 		}
 	}
 

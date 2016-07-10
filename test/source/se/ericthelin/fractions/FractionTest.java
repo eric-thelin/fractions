@@ -121,6 +121,11 @@ public class FractionTest {
 	}
 
 	@Test
+	public void isEqualToFractionWithEqualNumericalValue() {
+		assertTrue(Fraction.of("4/6").equals(Fraction.of("2/3")));
+	}
+
+	@Test
 	public void isNotEqualToNull() {
 		assertFalse(Fraction.of("7/5").equals(null));
 	}
