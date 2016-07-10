@@ -179,4 +179,9 @@ public class FractionTest {
 	public void canAddFractions() {
 		assertThat(Fraction.of("7/3").plus(Fraction.of("4/5")), is(Fraction.of("47/15")));
 	}
+
+	@Test
+	public void reducesSum() {
+		assertThat(Fraction.of("3/8").plus(Fraction.of("1/8")), is(Fraction.of("1/2")));
+	}
 }
