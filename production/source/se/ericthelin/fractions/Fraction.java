@@ -4,6 +4,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import static java.lang.Integer.parseInt;
+import static java.util.Objects.hash;
 
 public class Fraction {
 
@@ -87,7 +88,7 @@ public class Fraction {
 
 	@Override
 	public int hashCode() {
-		return numerator + denominator;
+		return hash(numerator, denominator);
 	}
 
 	public Fraction plus(Fraction term) {
