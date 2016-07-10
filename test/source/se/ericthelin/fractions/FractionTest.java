@@ -131,6 +131,11 @@ public class FractionTest {
 	}
 
 	@Test
+	public void isEqualToFractionNegatedValues() {
+		assertTrue(Fraction.of("1/3").equals(Fraction.of("-1/-3")));
+	}
+
+	@Test
 	public void isNotEqualToNull() {
 		assertFalse(Fraction.of("7/5").equals(null));
 	}
