@@ -47,11 +47,11 @@ public class FractionTest {
 	@Test
 	public void rejectsTextWithZeroDenominator() {
 		// Given
-		String textZeroDenominator = "7/0";
+		String textWithZeroDenominator = "7/0";
 
 		try {
 			// When
-			Fraction.of(textZeroDenominator);
+			Fraction.of(textWithZeroDenominator);
 
 			// Then
 			fail("Nothing thrown");
