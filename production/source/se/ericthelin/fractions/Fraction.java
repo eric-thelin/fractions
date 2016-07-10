@@ -7,6 +7,8 @@ import static java.lang.Integer.parseInt;
 
 public class Fraction {
 
+	private static final Fraction ZERO = new Fraction(0, 1);
+
 	private static final Pattern FRACTION_PATTERN = Pattern.compile("(\\d+)/(\\d+)");
 	private static final Pattern INTEGER_PATTERN = Pattern.compile("\\d+");
 
@@ -34,7 +36,7 @@ public class Fraction {
 		}
 
 		if (numerator == 0) {
-			return new Fraction(numerator, 1);
+			return ZERO;
 		} else {
 			return new Fraction(numerator, denominator);
 		}
